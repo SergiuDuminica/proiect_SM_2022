@@ -15,6 +15,7 @@ triggerPIN = 14
 buzzerPIN = 4
 buzzerSTATE = False
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(echoPIN,GPIO.IN)
 GPIO.setup(triggerPIN,GPIO.OUT)
@@ -57,10 +58,9 @@ def distance ():
 	time.sleep(0.2)
 	return distance
 
-server=smtplib.SMTP('smtp.gmail.com',587)
-server.ehlo()
+server=smtplib.SMTP('smtp.mail.yahoo.com',587)
 server.starttls()
-server.login("labsm2022@gmail.com","tudorsisergiu")
+server.login("tudor124@yahoo.com", "cluaicyzadzzwbfm")
 
 try:
 	while True:
@@ -70,8 +70,8 @@ try:
 			ora=datetime.now()
 			ora_curenta=ora.strftime("%H:%M")
 			msg=MIMEMultipart()
-			msg['From']="Sistem de alarma antiefractie <labsm2022@gmail.com>"
-			msg['To']="<tudorsergiu12@gmail.com>"
+			msg['From']="Sistem de alarma antiefractie <tudor124@yahoo.com>"
+			msg['To']="<ioana_bianca24@yahoo.com>"
 			msg['Subject']="Miscare neautorizata detectata!"
 			body="A fost detectata miscare la ora " + ora_curenta + ".\n"
 			body+="Individul se afla la distanta de " + str(distance()) + " cm fata de senzor.\n"
@@ -82,7 +82,7 @@ try:
 			imgattach = MIMEImage(open("image.jpg", 'rb').read(), 'jpg')
 			imgattach.add_header('Content-Disposition', 'attachment; filename="image.jpg"')
 			msg.attach(imgattach)
-			server.sendmail("labsm2022@gmail.com", "tudorsergiu12@gmail.com", msg.as_string())
+			server.sendmail("tudor124@yahoo.com", "ioana_bianca24@yahoo.com", msg.as_string())
 			print('Email-ul a fost trimis.')
 			GPIO.output(buzzerPIN, buzzerSTATE)
 			print('A pornit alarma.')
