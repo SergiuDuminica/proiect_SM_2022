@@ -1,2 +1,2 @@
 # proiect_SM_2022
-Proiect realizat de: Duminica Ionel-Sergiu, Blanaru Ioana-Bianca, Cantaragiu Tudor-Radu, Botic Teodora
+Proiect realizat de: Duminica Ionel-Sergiu
